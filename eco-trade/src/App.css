@@ -1,0 +1,57 @@
+/* src/App.css */
+
+/* ---------- VARIÁVEIS DE FUNDO ---------- */
+:root {
+  --bg-image: url("https://media.istockphoto.com/id/1367127541/vector/money-green-seamless-pattern-vector-on-green-background-included-line-icons-as-piggy-bank.jpg?s=612x612&w=0&k=20&c=N90o1MsVkuOc1df2jTKuYxq9DqYuTKQQAw0q-y-4NJU=");
+}
+
+/* ---------- FUNDO ANIMADO ---------- */
+.animate-parallax {
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: parallaxMove 60s ease-in-out infinite;
+  position: relative;
+  z-index: 0;
+}
+
+/* ---------- SOBREPOSIÇÃO OPACA PARA LEGIBILIDADE ---------- */
+.animate-parallax::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65); /* 👈 opacidade ajustada */
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+/* ---------- ANIMAÇÃO DO FUNDO ---------- */
+@keyframes parallaxMove {
+  0% {
+    background-position: center top;
+  }
+  50% {
+    background-position: center bottom;
+  }
+  100% {
+    background-position: center top;
+  }
+}
+
+/* ---------- LAYOUT BASE ---------- */
+body,
+html,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background: black; /* mantém contraste no carregamento */
+}
+
+main {
+  position: relative;
+  z-index: 2; /* conteúdo acima do fundo escuro */
+}

@@ -1,0 +1,103 @@
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VARIÁVEIS GLOBAIS */
+:root {
+  --color-bg: transparent;
+  --color-text: #ffffff;
+  --color-link: #000000;
+  --color-link-hover: #040404;
+  --color-btn-bg: #047857;
+
+  font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tema escuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #ffffff;
+  }
+}
+
+/* CORPO GERAL */
+body {
+  @apply min-h-screen min-w-[320px] m-0;
+  display: block; 
+  background: none;
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* LINKS */
+a {
+  font-weight: 500;
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* TÍTULOS */
+h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* BOTÕES */
+button {
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-btn-bg);
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+button:hover {
+  background-color: #065f46;
+  transform: translateY(-1px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+  @apply flex flex-col items-center justify-center text-center;
+  padding-top: 6rem;
+  min-height: calc(100vh - 80px);
+}
+/* Fundo animado */
+@keyframes parallaxMove {
+  0% {
+    background-position: center 0px;
+  }
+  50% {
+    background-position: center 40px;
+  }
+  100% {
+    background-position: center 0px;
+  }
+}
+
+.animate-parallax {
+  animation: parallaxMove 25s ease-in-out infinite;
+}
